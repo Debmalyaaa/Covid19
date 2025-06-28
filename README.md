@@ -1,73 +1,85 @@
-# 🩺 COVID-19 Chest X-ray Classifier with Deep Learning & Streamlit
+# 🩺 COVID-19 Chest X-ray Image Classifier using Deep Learning and Streamlit
 
 ## 📘 Project Overview
 
-This project presents a **deep learning-based web application** that detects **COVID-19**, **Pneumonia**, or **Normal** conditions from chest X-ray images. Using a **Convolutional Neural Network (CNN)** trained on medical imaging datasets, the app offers instant predictions through a user-friendly **Streamlit interface**.
+This project is a **deep learning-based web application** that classifies chest X-ray images into three categories:
+- **COVID-19**
+- **Pneumonia**
+- **Normal (Healthy)**
 
-The model aims to support radiologists and healthcare practitioners by providing an additional automated tool for rapid and scalable chest image analysis.
-
----
-
-## 🌍 Motivation
-
-The global COVID-19 pandemic stressed the need for **fast, accurate, and accessible screening methods**. While RT-PCR remains the gold standard, chest X-rays are:
-
-- Widely available
-- Cost-effective
-- Useful for evaluating lung involvement
-
-This project contributes to ongoing efforts in AI-assisted diagnosis, especially in **low-resource** or **high-volume** settings.
+The classifier uses a **Convolutional Neural Network (CNN)** trained on a large publicly available COVID-19 chest X-ray dataset. The web interface is built using **Streamlit**, enabling users to upload an image and receive instant predictions with probability visualizations.
 
 ---
 
-## 🎯 Project Goals
+## 🎯 Objective
 
-- Classify chest X-ray images into:
-  - **COVID-19**
-  - **Pneumonia**
-  - **Normal (Healthy)**
-- Provide an interactive, lightweight **web app** for image prediction
-- Achieve balance between **accuracy**, **speed**, and **simplicity**
+- Detect COVID-19 and other respiratory diseases from chest X-ray images.
+- Provide a fast, accessible, and interpretable frontend for clinical or research usage.
+- Utilize machine learning and medical datasets to contribute toward public health.
 
 ---
 
-## 📂 Dataset Summary
+## 📂 Dataset Description
 
-This project leverages a **merged dataset** containing:
+The dataset used combines chest X-ray images of:
+- **3,616 COVID-19 positive patients**
+- **10,192 Normal (healthy) cases**
+- **6,012 Lung Opacity (non-COVID infections)**
+- **1,345 Viral Pneumonia cases**
 
-| Class         | Image Count |
-|---------------|-------------|
-| COVID-19      | 3,616       |
-| Normal        | 10,192      |
-| Pneumonia     | 6,012       |
-| Viral Pneumonia (merged) | 1,345  |
+### 🔍 Sources
 
-> 📦 Data is preprocessed to remove duplicates, resize images to 224x224 pixels, normalize pixel values, and split into training/test sets.
+- [RSNA Pneumonia Dataset (Kaggle)](https://www.kaggle.com/c/rsna-pneumonia-detection-challenge/data)
+- [Chest X-Ray Pneumonia Dataset (Kaggle)](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia)
+- [PadChest](https://bimcv.cipf.es/bimcv-projects/bimcv-covid19/)
+- [COVID-19 Image Repository](https://github.com/ieee8023/covid-chestxray-dataset)
 
----
+### 🧾 Citation
 
-## 🧠 Model Architecture
-
-The model is a **CNN** with the following characteristics:
-
-- Input shape: `(224, 224, 3)`
-- 3 convolutional blocks with ReLU and max-pooling
-- Flattened layers with dropout for regularization
-- Dense layers ending with softmax for 3-class classification
-
-### Loss & Optimizer
-
-- Loss Function: `categorical_crossentropy`
-- Optimizer: `Adam`
-- Evaluation Metric: `accuracy`
+If you use this dataset or model in academic research, please cite:
+- Chowdhury et al. (2020), *IEEE Access*: “Can AI help in screening Viral and COVID-19 pneumonia?”
+- Rahman et al. (2020), *arXiv*: “Exploring the Effect of Image Enhancement Techniques on COVID-19 Detection using Chest X-ray Images.”
 
 ---
 
-## 🖥️ Web App Features (Streamlit)
+## 🚀 How It Works
 
-- Upload `.jpg`, `.jpeg`, or `.png` chest X-ray images
-- Get real-time predictions: COVID-19, Pneumonia, or Normal
-- Probability bar chart visualization
-- Clean, responsive UI for clinical/non-clinical users
+1. **User uploads** a chest X-ray image.
+2. The image is **preprocessed** (resized, normalized).
+3. A pretrained deep learning model (`covid_classifier.h5`) makes predictions.
+4. The **predicted class** and **probabilities** are displayed along with a bar chart.
 
 ---
+
+## 🖥️ Web App Features
+
+- Built with **Streamlit**
+- Upload `.jpg`, `.jpeg`, or `.png` images
+- Displays:
+  - Predicted class (COVID, Normal, Pneumonia)
+  - Prediction probabilities
+  - Bar chart visualization
+
+---
+
+## 🧠 Model Details
+
+- Model Type: **Convolutional Neural Network (CNN)**
+- Framework: **TensorFlow / Keras**
+- Input shape: **224x224 RGB images**
+- Output: 3-class softmax prediction
+
+---
+
+## 🛠️ Tech Stack
+
+| Component        | Technology           |
+|------------------|----------------------|
+| Frontend         | Streamlit            |
+| Model Framework  | TensorFlow / Keras   |
+| Image Handling   | PIL, NumPy           |
+| Visualization    | Matplotlib           |
+
+---
+
+
