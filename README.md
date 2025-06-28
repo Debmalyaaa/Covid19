@@ -77,7 +77,7 @@ If you use this dataset or model in academic research, please cite:
 |------------------|----------------------|
 | Frontend         | Streamlit            |
 | Model Framework  | TensorFlow / Keras   |
-| Image Handling   | PIL, NumPy           |
+| Image Handling   |  NumPy               |
 | Visualization    | Matplotlib           |
 
 ---
